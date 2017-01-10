@@ -1,0 +1,21 @@
+.well {	border-left:4px solid #ff6666;}
+.introtitle {background:#ff6666;}
+.blogbox a.metablog:hover,.blogbox a.metablog:focus {	color: #ff6666;}
+.readmore,.reply {color:#ff6666;}
+.captionicons {	background:#ff6666;}
+#filter ul li .selected {color: #ff6666 !Important;}
+.popular .vuzz-button.buttonprice {	background: #ff6666;}
+.popular .vuzz-button {background:#ff6666;}
+.vuzz-pricing-table>div.popular {border-top:#ff6666 3px solid;}
+.popular .vuzz-pricing-cost {background:#ff6666;}
+.popular .vuzz-pricing-per {	background:#ff6666;}
+.progressdefault {background-color:#ff6666;}
+.defaultbutton {	background:#ff6666;}
+.testimonial-name {	color:#ff6666;}
+a.prev:hover,a.next:hover {background-color: #ff6666;}
+.colorme {color:#ff6666;}
+.pagination ul>li>a:hover,.pagination ul>li>a:focus,.pagination ul>.active>a,.pagination ul>.active>span {background:#ff6666;}
+blockquote {border-left:5px solid #ff6666;}
+/*.navbar-inverse .navbar-inner {border-bottom:#ff6666 solid 10px;}*/
+.totop:hover {background:#ff6666;color:#fff;}
+::selection {background-color: #ff6666; color: #fff;}

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="framezapp">
+<head>
+<meta charset="utf-8">
+<title>FRAMEZ</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/icons.css" rel="stylesheet" media="screen">
+<link rel="stylesheet" href="css/jpreloader.css" />
+<link href="css/custom.css" rel="stylesheet">
+<link href="css/skindefault.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+
+
+<script src="js/jquery-1.9.0.min.js"></script>
+</head>
+<body ng-controller="mainController as framez" scroll>
+<!-- Header
+================================================== -->
+<div class="navbar navbar-inverse navbar-fixed-top">
+	<div class="navbar-inner">
+		<div class="container">
+			<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			</button>
+			<a class="brand" href="index.html">
+				<img src = "img/logo.png" />
+			</a>
+			<div class="nav-collapse collapse">
+				<ul class="nav">
+					<li class="active"><a href="index.html">LOGIN</a></li>
+					<li><a href="#">FREE SIGN UP</a></li>
+					<li><a href="#">{{sss}}</a></li>
+				</ul>
+			</div>
+			<!--/.nav-collapse -->
+		</div>
+	</div>
+</div>
+
+<div class="container" id="main_container">
+	
+	<!-- MASONRY ITEMS START
+	================================================== -->
+	<div id="content">	
+		<!-- New Project -->
+		<div class="boxportfolio4">
+			<div class="boxcontainer">
+				<span class="new_project">+ New Project</span>
+			</div>
+		</div>
+		<!-- Boxes -->
+		<div class="boxportfolio4" ng-repeat="project in framez.projects">
+			<div class="boxcontainer" ng-mousemove="activeTitle($index)" ng-mouseout="deactiveTitle()">
+				<div class="information">
+				    <div class="row-fluid">
+				        <div class="span12">
+				          	<img src="img/message.png" alt="" ng-show="project.messages.length > 0">
+				          	<span>{{project.messages.length}}</span>
+				          	<img src="img/camera.png" alt="" ng-show="project.cameras > 0">
+				          	<span>{{project.cameras}}</span>
+				        </div>
+				    </div>
+				</div>
+				<div class="project_image" >
+					<img ng-src="{{project.project_image}}" alt="">
+				</div>
+				<div id = "title_bar" class="project_title_one_line" ng-class="{ project_title_two_lines : project.project_title.length > 34 }" title="{{project.project_title}}">
+					<span class= "project_title_one_line_span" ng-class="{ project_title_two_lines_span : project.project_title.length > 34 }">{{ project.project_title | limitTo: 70 }}{{project.project_title.length > 70 ? '...' : ''}}</span>
+				</div>
+				<div class="collaborators">
+					<div class="content">
+						<span  ng-show="project.collaborators.length === 0">No Collaborator invited</span>
+						<div class="avatar" ng-repeat="collaborator in project.collaborators | limitTo : 4" title="{{collaborator.name}}" title="{{collaborator.name}}">
+							<img ng-src="{{collaborator.avatar}}" alt="">
+						</div>
+						<div class="remain_person " ng-show="project.collaborators.length > 4" title="+{{framez.remain_person_counts[$index]}}">
+							<span class="counts">+{{framez.remain_person_counts[$index]}}</span>
+						</div>
+					</div>
+					<div class="calendar">
+						<span class="days">5 days</span>
+						<img src="img/calendar.png" alt="">						
+					</div>
+				</div>
+				<div class="messages" ng-repeat="message in project.messages | limitTo : 2" title="{{message.createdAt}}h ago {{message.comment}}">
+					<div class="avatar">
+						<img ng-src="{{message.avatar}}" alt="">
+					</div>
+					<div class="comment">
+						<strong>{{message.createdAt}}h ago</strong> {{message.comment | limitTo : 60}}{{message.comment.length > 60 ? '...' : ''}}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<!-- MASONRY ITEMS END -->
+</div>
+<!-- Footer
+================================================== -->
+<div class="footer">
+	<div class="container">
+		<!-- 2nd row -->
+		<div class="row-fluid">
+			<!-- left -->
+			<div class="span8 smallcontacttop">
+				<p class="smaller">
+					framez is private beta. For terms contact arik@framez.co
+				</p>
+			</div>
+			<!-- right -->
+			<div class="span4 smallspacetop">
+				<ul class="social-links pull-right">
+					<li class="facebook-link">
+						<a href="#" class="facebook has-tip" target="_blank" title="Join us on Facebook">Facebook</a>
+					</li>
+					<li class="twitter-link">
+						<a href="#" class="twitter has-tip" target="_blank" title="Follow Us on Twitter">Twitter</a>
+					</li>
+				</ul>
+				<div class="clearfix">
+				</div>
+			</div>
+			<!-- end right -->
+		</div>
+	</div>
+</div>
+<!-- Le javascript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="js/jpreloader.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/twitter-bootstrap-hover-dropdown.js"></script>
+<script src="js/common.js"></script>
+<script src="js/jquery.isotope.min.js"></script>
+<script src="js/angular.min.js"></script>
+<script src="js/app.js"></script>
+
+<script>
+	$(document).ready( function() {
+		$('#main_container').jpreLoader({
+			autoClose: true
+		});
+	});
+</script>
+
+</body>
+</html>
